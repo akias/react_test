@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class LikeButton extends Component {
   constructor () {
     super()
-    this.state = { isLiked: false } //isLikedをstateに格納する、コンストラクタを実行する時、falseを設定した
+    this.state = { isLiked: false }
   }
 
   handleClickOnLikeButton () {
@@ -13,9 +13,11 @@ class LikeButton extends Component {
   }
 
   render () {
+    const likedText = this.props.likedText || '良いねした'
+    const unlikedText = this.props.unlikedText || '良いね！'
     return (
     <button onClick={this.handleClickOnLikeButton.bind(this)}>
-        {this.state.isLiked ? '良いねした' : '良いね！'} 👍
+        {this.state.isLiked ? likedText : unlikedText} 👍
     </button>
     )
   }
