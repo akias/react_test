@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 
 class LikeButton extends Component {
+  static defaultProps = {
+    likedText: '良いねした',
+    unlikedText: '良いね！'
+  }
+
   constructor () {
     super()
     this.state = { isLiked: false }
@@ -13,11 +18,9 @@ class LikeButton extends Component {
   }
 
   render () {
-    const likedText = this.props.likedText || '良いねした'
-    const unlikedText = this.props.unlikedText || '良いね！'
     return (
     <button onClick={this.handleClickOnLikeButton.bind(this)}>
-        {this.state.isLiked ? likedText : unlikedText} 👍
+        {this.state.isLiked ? this.props.likedText : this.props.unlikedText} 👍
     </button>
     )
   }
