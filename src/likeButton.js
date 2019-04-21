@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 class LikeButton extends Component {
   static defaultProps = {
@@ -12,8 +13,17 @@ class LikeButton extends Component {
   }
 
   handleClickOnLikeButton () {
-    this.setState({
-    isLiked: !this.state.isLiked
+    const request = axios.create({
+      baseURL: 'https://pwr2zeox06.execute-api.ap-northeast-1.amazonaws.com'
+    })
+    request.post('/test/comment_nice')
+    .then(res => {
+      console.log(res.data);
+      if(res.data.statusCode == 200){ //レスポンスは200なら、Stateを変わる
+        this.setState({
+        isLiked: !this.state.isLiked
+        })
+      }
     })
   }
 
