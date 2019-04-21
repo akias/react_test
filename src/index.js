@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
+var gretting = <h1>Hello React!</h1>;
+
 ReactDOM.render(
-  <h1>Hello World!</h1>,
+  gretting,
   document.getElementById('root')
 );
 
