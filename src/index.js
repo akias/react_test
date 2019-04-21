@@ -3,12 +3,14 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import React, { Component } from 'react';
 import Title from './title';
+import LikeButton from './likeButton'
 
 class Header extends Component {
   render () {
     return (
       <div>
         <Title />
+        <LikeButton />
       </div>
     )
   }
